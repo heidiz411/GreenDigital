@@ -1,0 +1,2 @@
+
+<div class="page-header"><h3><?= htmlspecialchars($pageTitle ?? 'Dashboard', ENT_QUOTES, 'UTF-8') ?></h3></div>
