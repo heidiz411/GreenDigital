@@ -1,1 +1,3 @@
-<div class="banner"><div class="alert alert-success">Green Digital — เทคโนโลยีดิจิทัลเพื่อสิ่งแวดล้อม</div></div>
+<div class="banner">
+    <div class="alert alert-success">Green Digital — เทคโนโลยีดิจิทัลเพื่อสิ่งแวดล้อม</div>
+</div>

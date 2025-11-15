@@ -1,5 +1,11 @@
 <?php
-abstract class Model {
+
+abstract class Model
+{
     protected PDO $db;
-    public function __construct(){ $this->db = Database::connection(); }
+
+    public function __construct()
+    {
+        $this->db = Database::connection();
+    }
 }

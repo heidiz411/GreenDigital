@@ -1,8 +1,12 @@
 <?php
 require_once __DIR__ . '/Config.php';
-class Database {
+
+class Database
+{
     private static ?PDO $pdo = null;
-    public static function connection(): PDO {
+
+    public static function connection(): PDO
+    {
         if (self::$pdo === null) {
             $dsn = sprintf('mysql:host=%s;dbname=%s;charset=%s', Config::DB_HOST, Config::DB_NAME, Config::DB_CHARSET);
             $opts = [

@@ -1,5 +1,7 @@
 <?php
-class Config {
+
+class Config
+{
     public const DB_HOST = '127.0.0.1';
     public const DB_NAME = 'greendigital';
     public const DB_USER = 'root';
