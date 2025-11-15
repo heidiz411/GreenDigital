@@ -1,4 +1,3 @@
-
 /* global $, AppModal */
 $(function(){
   if (!$('#usersTable').length) return;

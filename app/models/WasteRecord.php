@@ -1,4 +1,3 @@
-
 <?php
 require_once __DIR__ . '/../core/Model.php';
 class WasteRecord extends Model {
@@ -22,9 +21,9 @@ class WasteRecord extends Model {
     if (!empty($f['user_id'])) { $sql.=' AND r.user_id=?'; $params[]=(int)$f['user_id']; }
     if (!empty($f['org_id']))  { $sql.=' AND r.org_id=?';  $params[]=(int)$f['org_id']; }
     if (!empty($f['type_id'])) { $sql.=' AND r.type_id=?'; $params[]=(int)$f['type_id']; }
-    if (!empty($f['from']))    { $sql.=' AND r.create_at >= ?'; $params[]=$f['from'] . ' 00:00:00'; }
-    if (!empty($f['to']))      { $sql.=' AND r.create_at <= ?'; $params[]=$f['to'] . ' 23:59:59'; }
-    if (!empty($f['q']))       { $sql.=' AND (r.note LIKE ?)';  $params.append('%'+str($f['q'])+'%'); }
+    if (!empty($f['from']))    { $sql.=' AND r.create_at >= ?'; $params[]=$f['from'].' 00:00:00'; }
+    if (!empty($f['to']))      { $sql.=' AND r.create_at <= ?'; $params[]=$f['to'].' 23:59:59'; }
+    if (!empty($f['q']))       { $sql.=' AND (r.note LIKE ?)';  $params[]='%'.$f['q'].'%'; }
     $sql .= ' ORDER BY r.rec_id DESC';
     $st=$this->db->prepare($sql); $st->execute($params); return $st->fetchAll();
   }

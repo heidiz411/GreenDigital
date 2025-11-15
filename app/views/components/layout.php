@@ -1,4 +1,3 @@
-
 <?php require_once __DIR__ . '/../../core/Config.php'; require_once __DIR__ . '/../../core/Auth.php'; ?>
 <!DOCTYPE html>
 <html lang="th">
@@ -22,7 +21,6 @@
     <?php require __DIR__ . '/footer.php'; ?>
   </div>
   <?php require __DIR__ . '/modal.php'; ?>
-  <script>window.APP_BASE='<?= rtrim(Config::BASE_URL, '/') ?>';</script>
   <script src="https://code.jquery.com/jquery/3.7.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>

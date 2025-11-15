@@ -1,4 +1,3 @@
-
 /* global $, window */
 $(function(){
   $('#loginForm').on('submit', function(e){ e.preventDefault();

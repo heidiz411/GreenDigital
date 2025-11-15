@@ -1,4 +1,3 @@
-
 <?php
 class Config {
     public const DB_HOST = '127.0.0.1';

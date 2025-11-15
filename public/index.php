@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 define('BASE_DIR', dirname(__DIR__));

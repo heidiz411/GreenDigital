@@ -1,4 +1,3 @@
-
 /* global $ */
 window.AppModal = (function(){
   function open(title, url) {

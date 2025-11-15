@@ -1,4 +1,3 @@
-
 <?php
 class Auth {
     public static function user(): ?array { return $_SESSION['user'] ?? null; }

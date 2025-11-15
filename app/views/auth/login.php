@@ -1,4 +1,3 @@
-
 <form id="loginForm" class="form-horizontal" style="max-width:400px;margin:auto;">
   <input type="hidden" name="_csrf" value="<?= Auth::csrfToken() ?>">
   <div class="form-group"><label>อีเมล</label><input type="email" name="email" class="form-control" required></div>

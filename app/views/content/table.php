@@ -1,4 +1,3 @@
-
 <div class="text-right" style="margin-bottom:10px;">
   <button id="btnAddContent" class="btn btn-success">เพิ่มเนื้อหา</button>
 </div>

@@ -1,4 +1,3 @@
-
 <?php
 class Router {
     private array $routes = ['GET'=>[], 'POST'=>[]];

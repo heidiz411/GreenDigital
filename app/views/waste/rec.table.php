@@ -1,4 +1,3 @@
-
 <div class="row" style="margin-bottom:10px;">
   <div class="col-sm-2"><input type="date" id="fltFrom" class="form-control" placeholder="จากวันที่"></div>
   <div class="col-sm-2"><input type="date" id="fltTo" class="form-control" placeholder="ถึงวันที่"></div>

@@ -1,4 +1,3 @@
-
 <form id="typeForm">
   <input type="hidden" name="_csrf" value="<?= Auth::csrfToken() ?>">
   <input type="hidden" name="type_id" value="">

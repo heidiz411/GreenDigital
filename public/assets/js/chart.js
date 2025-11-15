@@ -1,4 +1,3 @@
-
 /* global $, Chart */
 $(function(){
   if ($('#chartWasteByType').length) {

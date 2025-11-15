@@ -1,4 +1,3 @@
-
 <?php
 $router->get('/',                     'AdminController@dashboard');
 $router->get('/login',                'AuthController@login');

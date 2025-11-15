@@ -1,4 +1,3 @@
-
 /* global $, AppModal */
 $(function(){
   if (!$('#contentsTable').length) return;

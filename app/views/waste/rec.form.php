@@ -1,4 +1,3 @@
-
 <form id="recForm" enctype="multipart/form-data">
   <input type="hidden" name="_csrf" value="<?= Auth::csrfToken() ?>">
   <input type="hidden" name="rec_id" value="">
@@ -9,7 +8,9 @@
   <div class="form-group"><label>โน้ต</label><textarea name="note" class="form-control"></textarea></div>
   <div class="form-group"><label>สถานะ</label>
     <select name="status" class="form-control">
-      <option value="ใช้งานอยู่">ใช้งานอยู่</option><option value="ระงับ">ระงับ</option><option value="ลบ">ลบ</option>
+      <option value="ใช้งานอยู่">ใช้งานอยู่</option>
+      <option value="ระงับ">ระงับ</option>
+      <option value="ลบ">ลบ</option>
     </select>
   </div>
 </form>

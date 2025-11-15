@@ -1,4 +1,3 @@
-
 <form id="contentForm" enctype="multipart/form-data">
   <input type="hidden" name="_csrf" value="<?= Auth::csrfToken() ?>">
   <input type="hidden" name="content_id" value="">

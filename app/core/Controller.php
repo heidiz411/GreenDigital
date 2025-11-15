@@ -1,10 +1,12 @@
-
 <?php
 abstract class Controller {
     protected function view(string $contentView, array $data = []): void {
+        // Extract data to variables for view
         extract($data, EXTR_SKIP);
-        // resolve content path
-        $contentViewPath = is_file($contentView) ? $contentView : __DIR__ . '/../views/' . $contentView;
+        // Resolve content view to an absolute file path under app/views
+        $contentViewPath = is_file($contentView)
+            ? $contentView
+            : __DIR__ . '/../views/' . ltrim($contentView, '/');
         require __DIR__ . '/../views/components/layout.php';
     }
     protected function json($payload, int $status = 200): void {

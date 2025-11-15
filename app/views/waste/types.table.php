@@ -1,4 +1,3 @@
-
 <div class="text-right" style="margin-bottom:10px;">
   <button id="btnAddType" class="btn btn-success">เพิ่มประเภทขยะ</button>
 </div>
