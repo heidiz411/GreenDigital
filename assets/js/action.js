@@ -1,0 +1,114 @@
+"use strict"
+$(document).ready(function () {
+    let $body = $('body');
+    $body.on("click", ".btn-modal", function (e) {
+        let modal = $(this).data("modal");
+        let findmodal = $("#" + modal);
+        findmodal.modal("show");
+        let id = $(this).data("id");
+        let controllers = $(this).data("controllers");
+        if (id != null && controllers != null) {
+            $.ajax({
+                url: controllers,
+                type: 'POST',
+                data: {
+                    id: id
+                },
+                dataType: "json",
+                success: function (res) {
+                    $.each(res, function (key, value) {
+                        findmodal.find('input[name=' + key + ']').val(value);
+                        if (key == 'password') {
+                            findmodal.find('input[name=' + key + ']').val('');
+                            findmodal.find('input[name=' + key + ']').attr('required', false);
+
+                        }
+                        if (key == 'list_image') {
+                            findmodal.find('input[name=' + key + ']').prop('required', false);
+                        }
+                        findmodal.find('textarea[name=' + key + ']').val(value);
+                        findmodal.find('select[name=' + key + ']').val(value);
+                        findmodal.find('small[name=' + key + ']').text(value);
+                        if (key == 'image') {
+                            findmodal.find('img[name=' + key + ']').attr('src', '../uploads/' + value);
+                        }
+                    })
+                }
+            });
+        } else {
+            let form = findmodal.find('.form-ajax');
+            form[0].reset();
+
+        }
+    });
+
+    $body.on('submit', '.form-ajax', function (e) {
+        e.preventDefault();
+        let url = $(this).attr('action');
+        let method = $(this).attr('method');
+        let data = new FormData(this);
+
+        $.ajax({
+            url: url,
+            type: method,
+            data: data,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success: function (res) {
+                if (res.alert) {
+                    alert(res.alert);
+                    $('.modal-hide').modal('hide');
+                }
+                if (res.page) {
+                    window.location = res.page;
+                }
+                if (res.reload) {
+                    setTimeout(() => {
+                        window.location.reload();
+                    },1000)
+                }
+                if (res.message) {
+                    $('.message').html('<div class="alert alert-danger"><button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>' + res.message + '</div>')
+                }
+
+            }, error: function (res) {
+                $('.message').html('<div class="alert alert-danger"><button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>เกิดข้อผิดพลาด กรุณาลองอีกครั้ง</div>')
+
+            }
+        });
+    })
+
+    $body.on('click', '.btn-delete', function(e){
+        e.preventDefault();
+        let id=$(this).data('id');
+        let controllers=$(this).data('controllers');
+
+        if (confirm("คุณต้องการลบหรือไม่")) {
+            $.ajax({
+                url: controllers,
+                type: 'POST',
+                data:{
+                    id:id
+                },
+                dataType: 'json',
+                success: function(res){
+                    if (res.alert) {
+                    alert(res.alert);
+                }
+                if (res.page) {
+                    window.location = res.page;
+                }
+                if (res.reload) {
+                    setTimeout(() => {
+                        window.location.reload();
+                    },1000)
+                }
+                },error: function(res){
+                    alert('เกิดข้อผิดพลาด');
+                }
+            });
+        }
+    })
+
+});
