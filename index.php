@@ -4,10 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Green Digital - หน้าแรก</title>
-    <!-- Bootstrap CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="assets/css/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link href="assets/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/plugins/datatables/datatables.min.css" rel="stylesheet">
 </head>
 <body class="bg-body">
 
@@ -75,8 +74,8 @@ if (!empty($_COOKIE['user_id'])) {
                         <h5 class="card-title">ฟีเจอร์เด่นของเรา</h5>
                         <ul class="list-unstyled mb-0">
                             <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> ระบบล็อกอิน</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> โพสวิดีโอ</li>
-                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> สร้างเพลลิสย์</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> โพสต์ข้อความ</li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> จัดการข้อมูลขยะ</li>
                         </ul>
                     </div>
                 </div>
@@ -95,12 +94,10 @@ if (!empty($_COOKIE['user_id'])) {
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
+                        <div class="text-center">
                             <i class="bi bi-laptop fs-2 text-primary me-3"></i>
-                            <h5 class="card-title mb-0">เรียนรู้ได้ในชุดเดียว</h5>
+                            <h5 class="card-title mb-0">จัดการข้อมูลขยะในชุดเดียว</h5>
                         </div>
-                        <p class="card-text text-muted">จัดทำโดย วิทยาลัยการอาชีพโพนทอง</p>
-                        <a href="#" class="stretched-link">เรียนรู้เพิ่มเติม</a>
                     </div>
                 </div>
             </div>
@@ -108,12 +105,10 @@ if (!empty($_COOKIE['user_id'])) {
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
+                        <div class="text-center">
                             <i class="bi bi-journal-bookmark fs-2 text-primary me-3"></i>
                             <h5 class="card-title mb-0">แลกเปลี่ยนความคิดเห็น</h5>
                         </div>
-                        <p class="card-text text-muted">จัดทำโดย วิทยาลัยการอาชีพโพนทอง</p>
-                        <a href="#" class="stretched-link">เรียนรู้เพิ่มเติม</a>
                     </div>
                 </div>
             </div>
@@ -121,12 +116,10 @@ if (!empty($_COOKIE['user_id'])) {
             <div class="col-md-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
-                        <div class="d-flex align-items-center mb-3">
+                        <div class="text-center">
                             <i class="bi bi-people fs-2 text-primary me-3"></i>
-                            <h5 class="card-title mb-0">เพิ่มความรู้ตามที่ต้องการ</h5>
+                            <h5 class="card-title mb-0">เปลี่ยนขยะให้เป็นคะแนน</h5>
                         </div>
-                        <p class="card-text text-muted">จัดทำโดย วิทยาลัยการอาชีพโพนทอง</p>
-                        <a href="#" class="stretched-link">เรียนรู้เพิ่มเติม</a>
                     </div>
                 </div>
             </div>
@@ -138,28 +131,26 @@ if (!empty($_COOKIE['user_id'])) {
 <section id="about" class="py-5 bg-white border-top">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h3 class="fw-bold">เป้าหมายของระบบ</h3>
-                <p class="text-muted">เพื่อให้พัฒนาพฤติกรรมการคัดแยกขยะ</p>
+            <div class="col-lg-5">
+                <h3 class="fw-bold"><i class="bi bi-gear-fill"></i> เป้าหมายของระบบ Green Digital</h3>
                 <ul>
+                    <li>เพื่อให้พัฒนาพฤติกรรมการคัดแยกขยะ</li>
                     <li>เพิ่มประสิทธิภาพการรีไซเคิล</li>
                     <li>ลดผลกระทบต่อสิ่งแวดล้อม</li>
                     <li>สร้างชุมชนที่ร่วมมือกันจัดการขยะอย่างถูกต้อง</li>
                 </ul>
             </div>
-            <div class="col-lg-6">
-                <?php
-                include_once 'config/Database.php';
-                $data = new Database();
-                $db = $data->connect();
-                $sql = "SELECT * FROM tb_contents ORDER BY publish_at DESC LIMIT 1";
-                $stmt = $db->prepare($sql);
-                $stmt->execute();
-                $cont = $stmt->fetch(PDO::FETCH_ASSOC);
-                ?>
-                <div class="ratio ratio-16x9">
-                    <img src="image/poster/<?= $cont['title'] ?? '' ?>" alt="">
-                </div>
+            <div class="col-lg-5">
+                <h3 class="fw-bold"><i class="bi bi-universal-access"></i> ผู้มีส่วนเกี่ยวข้องกับระบบ Green Digital</h3>
+                <ul>
+                    <li>ประชาชนในท้องถิ่น</li>
+                    <li>องค์การบริหารส่วนตำบล</li>
+                    <li>นักอนุรักษ์สิ่งแวดล้อม</li>
+                    <li>ผู้ดูแลระบบ</li>
+                </ul>
+            </div>
+            <div class="col-lg-2">
+                <img src="image/recycle-bin.jpg" class="w-100 h-auto" alt="">
             </div>
         </div>
     </div>
@@ -168,7 +159,7 @@ if (!empty($_COOKIE['user_id'])) {
 <!-- Footer -->
 <footer class="py-4 bg-light border-top">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-        <div class="text-muted small">© <span id="year"></span> Green Digital</div>
+        <div class="text-muted small">© <span id="year"><?= date('Y') ?></span>. Green Digital</div>
     </div>
 </footer>
 
@@ -178,8 +169,10 @@ if (!empty($_COOKIE['user_id'])) {
 
 <!-- Bootstrap JS -->
 <?php include_once 'views/widget/modal.php'; ?>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/jquery-3.7.1.min.js"></script>
+<script src="assets/plugins/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="assets/plugins/jquery/jquery-3.7.1.min.js"></script>
+<script src="assets/plugins/datatables/datatables.min.js"></script>
+<script src="assets/plugins/chartjs/chartjs.min.js"></script>
 <script src="assets/js/action.js"></script>
 
 </body>
