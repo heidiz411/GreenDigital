@@ -60,8 +60,8 @@ if (!empty($_COOKIE['user_id'])) {
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-7">
-                <h1 class="display-5 fw-bold">เพิ่มความรู้ด้วย Green Digital</h1>
-                <p class="lead text-muted">infomation technology major</p>
+                <h1 class="display-5 fw-bold">PTICEC</h1>
+                <p class="lead text-muted">วิทยาลัยการอาชีพโพนทอง</p>
 
                 <div class="mt-4">
                     <a class="btn btn-primary btn-lg me-2" href="#features">เริ่มต้นใช้งาน</a>
@@ -141,12 +141,12 @@ if (!empty($_COOKIE['user_id'])) {
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <h3 class="fw-bold">เป้าหมายในการสร้างเว็บไซต์</h3>
-                <p class="text-muted">เพื่อให้ได้เรียนรู้อย่างต่อเนื่องและตรงประเด็น</p>
+                <h3 class="fw-bold">เป้าหมายของระบบ</h3>
+                <p class="text-muted">เพื่อให้พัฒนาพฤติกรรมการคัดแยกขยะ</p>
                 <ul>
-                    <li>เรียนอย่างเป็นระบบ</li>
-                    <li>มีแอดมินจัดการหลังบ้าน</li>
-                    <li>คุยกันอย่างเป็นมิตร</li>
+                    <li>เพิ่มประสิทธิภาพการรีไซเคิล</li>
+                    <li>ลดผลกระทบต่อสิ่งแวดล้อม</li>
+                    <li>สร้างชุมชนที่ร่วมมือกันจัดการขยะอย่างถูกต้อง</li>
                 </ul>
             </div>
             <div class="col-lg-6">
@@ -154,27 +154,15 @@ if (!empty($_COOKIE['user_id'])) {
                 include_once 'config/Database.php';
                 $data = new Database();
                 $db = $data->connect();
-                $sql = "SELECT * FROM tb_videos ORDER BY vie_view DESC LIMIT 1";
+                $sql = "SELECT * FROM tb_contents ORDER BY publish_at DESC LIMIT 1";
                 $stmt = $db->prepare($sql);
                 $stmt->execute();
-                $vie = $stmt->fetch(PDO::FETCH_ASSOC);
+                $cont = $stmt->fetch(PDO::FETCH_ASSOC);
                 ?>
                 <div class="ratio ratio-16x9">
-                    <img src="image/poster/<?= $vie['vie_poster'] ?>" alt="">
+                    <img src="image/poster/<?= $cont['title'] ?? '' ?>" alt="">
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<section class="py-5 bg-primary text-white text-center">
-    <div class="container">
-        <h4 class="fw-bold mb-3">สร้างขึ้นโดย</h4>
-        <p class="mb-4">วิทยาลัยการอาชีพโพนทอง</p>
-        <div>
-            <button class="btn btn-light btn-lg text-primary me-2">สมัครสมาชิก</button>
-            <button class="btn btn-outline-light btn-lg">เข้าสู่ระบบ</button>
         </div>
     </div>
 </section>
