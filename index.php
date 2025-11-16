@@ -171,10 +171,6 @@ if (!empty($_COOKIE['user_id'])) {
 <footer class="py-4 bg-light border-top">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
         <div class="text-muted small">© <span id="year"></span> Green Digital</div>
-        <div>
-            <a href="#" class="text-decoration-none me-3">นโยบายความเป็นส่วนตัว</a>
-            <a href="#" class="text-decoration-none">ติดต่อเรา</a>
-        </div>
     </div>
 </footer>
 
