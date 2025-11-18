@@ -155,7 +155,7 @@ $action = basename($_SERVER['PHP_SELF']) == "index.php" ? "controllers/users/sav
     </div>
 </div>
 
-<!-- สำหรับ แก้ไไข -->
+<!-- สำหรับ แก้ไข -->
 <?php
 $action = basename($_SERVER['PHP_SELF']) == "index.php" ? "controllers/users/save_users.php" : "../controllers/users/save_users.php";
 ?>
