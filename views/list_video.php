@@ -11,7 +11,7 @@ $list_id = $_GET['list_id'] ?? null;
 </head>
 
 <body>
-    <?php include_once 'widget/navbar.php'; ?>
+    <?php include_once 'widget/navbar-old.php'; ?>
     <?php include_once 'check_data.php'; ?>
 
     <!-- Video Player Page -->

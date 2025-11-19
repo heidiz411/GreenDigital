@@ -27,13 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         }
         session_start();
         $_SESSION['user_id'] = $row['user_id'];
-        if ($row['role'] == 'ประชาชน') {
-            echo json_encode(["alert" => "ยินดีต้อนรับ", "page" => "views/home.php"]);
-        } else if($row['role'] == 'รัฐบาล') {
-            echo json_encode(["alert" => "ยินดีต้อนรับผู้ดูแลงาน", "page" => "views/edit_waste_records.php"]);
-        } else {
-            echo json_encode(["alert" => "ยินดีต้อนรับแอดมิน", "page" => "views/edit_users.php"]);
-        }
+        $_SESSION['role'] = $row['role'];
+        echo json_encode(["alert" => "ยินดีต้อนรับเข้าสู่ระบบ", "page" => "index.php"]);
         exit;
     }
 }

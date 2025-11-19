@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <?php include_once 'widget/navbar.php'; ?>
+  <?php include_once 'widget/navbar-old.php'; ?>
     <?php include_once 'check_data.php'; ?>
 
   <?php
