@@ -29,34 +29,29 @@ if (empty($_SESSION['user_id'])) {
         </div>
         <hr>
 
-        <table id="edit_user" class="table table-bordered mb-0">
-            <thead class="text-center pop-up-table">
+        <table id="edit_user" class="table mb-0">
+            <thead>
             <tr>
-                <th>รูปโปรไฟล์</th>
-                <th>ชื่อ-นามสกุล</th>
-                <th>อีเมลล์</th>
-                <th>สถานะ</th>
-                <th>จัดการ</th>
+                <th class="text-center">รูปโปรไฟล์</th>
+                <th class="text-center">ชื่อ-นามสกุล</th>
+                <th class="text-center">อีเมลล์</th>
+                <th class="text-center">สถานะ</th>
+                <th class="text-center">จัดการ</th>
             </tr>
             </thead>
-            <tbody class="text-center" id="results">
+            <tbody id="results">
 
             <?php
 
-            if (!empty($_POST['search'])) {
-                $search = '%' . $_POST['search'] . '%' ?? null;
-                $column = $_POST['column'] ?? null;
-                $sql = "SELECT * FROM tb_users WHERE $column LIKE '$search' ";
-            } else {
-                $sql = "SELECT * FROM tb_users";
-            }
+            $sql = "SELECT * FROM tb_users WHERE user_id!=:user_id";
             $stmt = $db->prepare($sql);
+            $stmt->bindParam(":user_id", $user_id);
             $stmt->execute();
-            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             ?>
-            <?php foreach ($users as $row) : ?>
-                <tr class="pop-up-table">
+            <?php foreach ($rows as $row) : ?>
+                <tr class="text-center">
                     <td><img src="../image/user/<?= $row['image'] ?? '' ?>" width="65px" height="65px" class="rounded-circle border image-css" alt=""></td>
                     <td><?= $row['full_name'] ?></td>
                     <td><?= $row['email'] ?></td>

@@ -33,6 +33,10 @@ if (!empty($_COOKIE['user_id'])) {
             <?php
             if (!empty($_SESSION['role']) && $_SESSION['role'] == 'แอดมิน') {
                 include_once 'views/menu/menu_admin.php';
+            } elseif (!empty($_SESSION['role']) && $_SESSION['role'] == 'ประชาชน') {
+                include_once 'views/menu/menu_peo.php';
+            } elseif (!empty($_SESSION['role']) && $_SESSION['role'] == 'รัฐบาล') {
+                include_once 'views/menu/menu_org.php';
             } else {
                 include_once 'views/widget/navbar.php';
             }
@@ -49,9 +53,6 @@ if (!empty($_GET['page'])) {
             break;
         case 'edit_user':
             include_once 'views/edit_user.php';
-            break;
-        case 'edit_waste':
-            include_once 'views/edit_waste.php';
             break;
         case 'edit_waste_type':
             include_once 'views/edit_waste_type.php';
