@@ -40,13 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 
     if ($user_id == null) {
-            if ($users->saveUser($data)) {
-                echo json_encode(["alert" => "บันทึกสำเร็จ", "reload" => true]);
-                exit;
-            } else {
-                echo json_encode(["message" => "มีบางอย่างผิดพลาด"]);
-                exit;
-            }
+        if ($users->saveUser($data)) {
+            echo json_encode(["alert" => "บันทึกสำเร็จ", "reload" => true]);
+            exit;
+        } else {
+            echo json_encode(["message" => "มีบางอย่างผิดพลาด"]);
+            exit;
+        }
     } else {
         if ($users->saveUser($data, $user_id)) {
             echo json_encode(["alert" => "แก้ไขข้อมูลสำเร็จ", "reload" => true]);

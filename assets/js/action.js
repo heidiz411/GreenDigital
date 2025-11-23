@@ -6,7 +6,7 @@ $(document).ready(function () {
         let $modal = $('#' + modal);
         $modal.modal('show');
         let $id = $(this).data('id');
-        let $controllers=$(this).data('controllers');
+        let $controllers = $(this).data('controllers');
         if ($id != null && $controllers != null) {
             $.ajax({
                 url: $controllers,
@@ -65,7 +65,7 @@ $(document).ready(function () {
                 if (res.reload) {
                     setTimeout(() => {
                         window.location.reload();
-                    },1000)
+                    }, 1000)
                 }
                 if (res.message) {
                     $('.message').html('<div class="alert alert-danger"><button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>' + res.message + '</div>')
@@ -78,32 +78,32 @@ $(document).ready(function () {
         });
     })
 
-    $body.on('click', '.btn-delete', function(e){
+    $body.on('click', '.btn-delete', function (e) {
         e.preventDefault();
-        let $id=$(this).data('id');
-        let $controllers=$(this).data('controllers');
+        let $id = $(this).data('id');
+        let $controllers = $(this).data('controllers');
 
         if (confirm("คุณต้องการลบหรือไม่")) {
             $.ajax({
                 url: $controllers,
                 type: 'POST',
-                data:{
+                data: {
                     id: $id
                 },
                 dataType: 'json',
-                success: function(res){
+                success: function (res) {
                     if (res.alert) {
-                    alert(res.alert);
-                }
-                if (res.page) {
-                    window.location = res.page;
-                }
-                if (res.reload) {
-                    setTimeout(() => {
-                        window.location.reload();
-                    },1000)
-                }
-                },error: function(res){
+                        alert(res.alert);
+                    }
+                    if (res.page) {
+                        window.location = res.page;
+                    }
+                    if (res.reload) {
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1000)
+                    }
+                }, error: function (res) {
                     alert('เกิดข้อผิดพลาด');
                 }
             });

@@ -35,7 +35,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="remember" name="remember">
                             <label class="form-check-label" for="remember">
-จำฉันไว้
+                                จำฉันไว้
                             </label>
                         </div>
                         <a href="#" class="text-decoration-none small">ลืมรหัสผ่าน?</a>

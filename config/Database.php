@@ -14,9 +14,9 @@ class Database
         $this->conn = null;
         try {
             $str = sprintf("mysql:host=%s;dbname=%s;charset=%s", $this->host, $this->db_name, $this->charset);
-            $this->conn = new PDO($str,$this->username, $this->password);
+            $this->conn = new PDO($str, $this->username, $this->password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $this->conn;            
+            return $this->conn;
         } catch (PDOException $exception) {
 
         }
