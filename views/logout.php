@@ -1,5 +1,5 @@
 <?php
-      $logout=$_GET['logout'] ?? null;
+    $logout=$_GET['logout'] ?? null;
     if($logout == 'logout'){
         session_start();
         session_destroy();

@@ -1,22 +1,9 @@
 <?php
 if (empty($_SESSION['user_id'])) {
     header('location: index.php');
-} else {
-    include 'config/Database.php';
-    $data = new Database();
-    $db = $data->connect();
-    $user_id = $_SESSION['user_id'];
-    $sql = "SELECT * FROM tb_users WHERE user_id=:user_id";
-    $stmt = $db->prepare($sql);
-    $stmt->bindParam(":user_id", $user_id);
-    $stmt->execute();
-    $users = $stmt->fetch(PDO::FETCH_ASSOC);
-    if ($users['role'] == 'ประชาชน') {
-        header('location: logout.php?logout=logout');
-    }
 }
-
 ?>
+
 <section class="py-5 border-bottom">
     <div class="container">
         <div class="row">
@@ -42,13 +29,9 @@ if (empty($_SESSION['user_id'])) {
             <tbody id="results">
 
             <?php
-
-            $sql = "SELECT * FROM tb_users WHERE user_id!=:user_id";
-            $stmt = $db->prepare($sql);
-            $stmt->bindParam(":user_id", $user_id);
-            $stmt->execute();
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+            require_once '../models/Users.php';
+            $model = new users($db);
+            $rows = $model->getUsers();
             ?>
             <?php foreach ($rows as $row) : ?>
                 <tr class="text-center">

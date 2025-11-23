@@ -1,3 +1,11 @@
+<?php
+session_start();
+include_once 'config/Database.php';
+$database = new Database();
+$db = $database->connect();
+header('Content-Type: text/html; charset=utf-8');
+?>
+
 <!doctype html>
 <html lang="th">
 <head>
@@ -12,7 +20,6 @@
 
 <!-- Navbar -->
 <?php
-session_start();
 if (!empty($_COOKIE['user_id'])) {
     $_SESSION['user_id'] = $_COOKIE['user_id'];
     header('location: views/index.php');

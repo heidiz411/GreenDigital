@@ -4,12 +4,11 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     $data=new Database();
     $db=$data->connect();
 
-    $user_id=$_POST['id'] ?? null;
-    $sql="SELECT * FROM tb_users WHERE user_id=:user_id";
-    $stmt=$db->prepare($sql);
-    $stmt->bindParam(":user_id",$user_id);
-    $stmt->execute();
-    $row=$stmt->fetch(PDO::FETCH_ASSOC);
+    $id=$_POST['user_id'];
+    
+    include_once '../../models/users.php';
+    $model=new users($db);
+    $row=$model->getUserById($id);
     echo json_encode($row);
 }
 ?>
