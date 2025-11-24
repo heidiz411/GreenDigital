@@ -5,6 +5,9 @@
     <li class="nav-item">
         <a class="nav-link <?= $_GET['page'] == 'edit_wallet' ? 'active' : '' ?>" href="?page=edit_wallet">จัดการวอลเล็ท</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link <?= $_GET['page'] == 'edit_content' ? 'active' : '' ?>" href="?page=edit_content">โพสต์</a>
+    </li>
 </ul>
 
 <div class="d-flex ms-lg-3">

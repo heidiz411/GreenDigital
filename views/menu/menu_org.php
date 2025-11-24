@@ -8,6 +8,9 @@
     <li class="nav-item">
         <a class="nav-link <?= $_GET['page'] == 'edit_org' ? 'active' : '' ?>" href="?page=edit_wallet">จัดการข้อมูลวอลเล็ท</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link <?= $_GET['page'] == 'edit_content' ? 'active' : '' ?>" href="?page=edit_content">จัดการโพสต์</a>
+    </li>
 </ul>
 
 <div class="d-flex ms-lg-3">
