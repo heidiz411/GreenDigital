@@ -11,6 +11,8 @@
 </ul>
 
 <div class="d-flex ms-lg-3">
-    <button class="btn btn-outline-light me-2 btn-modal" data-modal="login">เข้าสู่ระบบ</button>
-    <button class="btn btn-light text-primary btn-modal" data-modal="register">สมัครสมาชิก</button>
+    <button class="btn btn-outline-light me-2 btn-modal" data-title="เข้าสู่ระบบ"
+    data-view="views/modal/login.php">เข้าสู่ระบบ</button>
+    <button class="btn btn-light text-primary btn-modal" data-title="สมัครสมาชิก" 
+    data-view="views/modal/user.php">สมัครสมาชิก</button>
 </div>

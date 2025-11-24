@@ -89,7 +89,7 @@ if (!empty($_GET['page'])) {
 </footer>
 
 <!-- Bootstrap JS -->
-<?php include_once 'views/widget/modal.php'; ?>
+<?php include_once 'views/modal/modal.php'; ?>
 <script src="assets/plugins/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="assets/plugins/jquery/jquery-3.7.1.min.js"></script>
 <script src="assets/plugins/datatables/datatables.min.js"></script>

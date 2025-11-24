@@ -6,8 +6,10 @@
                 <p class="lead text-muted">วิทยาลัยการอาชีพโพนทอง</p>
 
                 <div class="mt-4">
-                    <a class="btn btn-primary btn-lg me-2" href="#features">เริ่มต้นใช้งาน</a>
-                    <button class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#registerModal">ลงทะเบียนฟรี</button>
+                    <a class="btn btn-primary btn-lg me-2 btn-modal" href="javascript:;"
+                    data-title="เข้าสู่ระบบ" data-view="views/modal/login.php">เริ่มต้นใช้งาน</a>
+                    <button class="btn btn-outline-primary btn-lg btn-modal"
+                    data-title="ลงทะเบียน" data-view="views/modal/user.php">ลงทะเบียนฟรี</button>
                 </div>
 
                 <div class="mt-4 small text-muted">ใช้งานได้บนมือถือ แท็บเล็ต และเดสก์ท็อป</div>

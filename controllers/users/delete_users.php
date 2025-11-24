@@ -4,10 +4,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $data = new Database();
     $db = $data->connect();
 
-    include_once '../../model/users.php';
+    include_once '../../models/users.php';
     $users = new users($db);
 
-    $id = $_POST['user_id'] ?? null;
+    $id = $_POST['id'] ?? null;
     if ($users->deleteUser($id)) {
         echo json_encode(["alert" => "ลบสำเร็จ", "reload" => true]);
         exit;

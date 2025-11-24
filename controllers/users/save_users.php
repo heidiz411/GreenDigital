@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     include_once '../../config/Database.php';
-    include_once '../../model/users.php';
+    include_once '../../models/users.php';
     header('Content-Type: application/json');
     $data = new Database();
     $db = $data->connect();
@@ -31,8 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $file_ext = strtolower(end($ext));
         $picture = uniqid() . "." . $file_ext;
         if (in_array($file_ext, $imagetype)) {
-            move_uploaded_file($image_file['tmp_name'], '../../image/user/' . $picture);
-            $image = $picture;
+            move_uploaded_file($image_file['tmp_name'], '../../uploads/' . $picture);
+            $data['image'] = $picture;
         } else {
             echo json_encode(["message" => "ชนิดรูปภาพไม่ถูกต้อง"]);
             exit;
@@ -48,6 +48,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             exit;
         }
     } else {
+        $row = $users->getUserById($user_id);
+        if ($data['image'] == null) {
+            $data['image'] = $row['image'];
+            }
+        if ($data['password'] == null) {
+            $data['password'] = $row['password'];
+        }
         if ($users->saveUser($data, $user_id)) {
             echo json_encode(["alert" => "แก้ไขข้อมูลสำเร็จ", "reload" => true]);
             exit;

@@ -1,12 +1,9 @@
 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
     <li class="nav-item">
-        <a class="nav-link" href="?page=edit_user">จัดการสมาชิก</a>
+        <a class="nav-link <?= $_GET['page'] == 'edit_waste_rec' ? 'active' : '' ?>" href="?page=edit_waste_rec">จัดการการแยกขยะ</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="?page=edit_org">จัดการข้อมูลองค์กร</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="?page=edit_waste_type">จัดการหมวดหมู่ขยะ</a>
+        <a class="nav-link <?= $_GET['page'] == 'edit_wallet' ? 'active' : '' ?>" href="?page=edit_wallet">จัดการวอลเล็ท</a>
     </li>
 </ul>
 

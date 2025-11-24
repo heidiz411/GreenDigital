@@ -61,11 +61,11 @@
 <?php
 $action = basename($_SERVER['PHP_SELF']) == "index.php" ? "controllers/users/save_users.php" : "../controllers/users/save_users.php";
 ?>
-<div class="modal fade modal-hide" id="register" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+<div class="modal fade modal-hide" id="edit_user" tabindex="-1" aria-labelledby="edit_userModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content shadow-lg border-0 rounded-4">
             <div class="modal-header bg-primary text-white rounded-top-4">
-                <h5 class="modal-title" id="registerModalLabel">
+                <h5 class="modal-title" id="edit_userModalLabel">
                     <i class="bi bi-person-plus-fill me-2"></i> สมัครสมาชิก
                 </h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>

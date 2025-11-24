@@ -2,8 +2,14 @@
 $(document).ready(function () {
     let $body = $('body');
     $body.on('click', '.btn-modal', function (e) {
-        let modal = $(this).data('modal');
-        let $modal = $('#' + modal);
+        let form_view = $(this).data('view');
+        let modal_title = $(this).data('title');
+        let $modal = $('#myModal');
+        let $modal_title = $modal.find('.modal-title');
+        $modal_title.text(modal_title);
+        let $modal_body = $modal.find('.modal-body');
+        $modal_body.load(form_view);
+
         $modal.modal('show');
         let $id = $(this).data('id');
         let $controllers = $(this).data('controllers');
@@ -36,8 +42,7 @@ $(document).ready(function () {
             });
         } else {
             let form = $modal.find('.form-ajax');
-            form[0].reset();
-
+            form.trigger('reset');
         }
     });
 

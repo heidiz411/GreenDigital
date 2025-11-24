@@ -8,12 +8,10 @@ if (empty($_SESSION['user_id'])) {
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <h3 class="text-primary">ตารางการจัดการสมาชิก</h3>
+                <h3 class="text-primary">ตารางการจัดการองค์กร</h3>
             </div>
             <div class="col-lg-6 text-end">
-                <button class="btn btn-primary btn-modal" 
-                data-title="เพื่มข้อมูลสมาชิก"
-                data-view="views/modal/user.php">เพื่มข้อมูลสมาชิก</button>
+                <button data-modal="edit_org" class="btn btn-primary btn-modal">เพื่มข้อมูลองค์กร</button>
             </div>
         </div>
         <hr>
@@ -31,25 +29,22 @@ if (empty($_SESSION['user_id'])) {
             <tbody id="results">
 
             <?php
-            require_once 'models/users.php';
+            require_once '../models/Users.php';
             $model = new users($db);
             $rows = $model->getUsers();
             ?>
             <?php foreach ($rows as $row) : ?>
                 <tr class="text-center">
-                    <td><img src="/uploads/<?= $row['image'] ?? '' ?>" width="65px" height="65px" class="rounded-circle border image-css" alt=""></td>
+                    <td><img src="../image/user/<?= $row['image'] ?? '' ?>" width="65px" height="65px" class="rounded-circle border image-css" alt=""></td>
                     <td><?= $row['full_name'] ?></td>
                     <td><?= $row['email'] ?></td>
                     <td><?= $row['role'] ?></td>
                     <td>
                         <div class="btn-group">
-                            <button class="btn-modal btn btn-sm btn-warning pop-up me-2"
-                            data-title="แก้ไขข้อมูล"
-                            data-view="views/modal/user.php"
-                            data-controllers="../../controllers/users/get_users.php" 
-                            data-id="<?= $row['user_id'] ?>">แก้ไขข้อมูล
+                            <button data-modal="edit_users" data-controllers="../controllers/users/get_users.php" data-id="<?= $row['user_id'] ?>"
+                                    class="btn-modal btn btn-sm btn-warning pop-up me-2">แก้ไขข้อมูล
                             </button>
-                            <button data-controllers="../../controllers/users/delete_users.php" data-id="<?= $row['user_id'] ?> " class="btn btn-sm btn-danger pop-up me-2 btn-delete">ลบข้อมูล
+                            <button data-controllers="../controllers/users/delete_users.php" data-id="<?= $row['user_id'] ?> " class="btn btn-sm btn-danger pop-up me-2 btn-delete">ลบข้อมูล
                             </button>
                         </div>
                     </td>
